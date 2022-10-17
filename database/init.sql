@@ -3,25 +3,25 @@ BEGIN;
 DROP TABLE IF EXISTS users, questions CASCADE;
 
 CREATE TABLE users (
-  User ID INTEGER PRIMARY KEY,
-  First name TEXT NOT NULL,
-  Last name TEXT NOT NULL,
-  Email TEXT PRIMARY KEY,
-  Password VARCHAR(255) NOT NULL,
-  RegisterDate date
+  user_id INTEGER PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email varchar(190) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  register_date date
 );
 
 CREATE TABLE questions (
-  Question ID INTEGER PRIMARY KEY,
-  Question type TEXT NOT NULL,
-  Question TEXT NOT NULL,
-  Answers  TEXT
+  question_id INTEGER PRIMARY KEY,
+  question_type TEXT NOT NULL,
+  question TEXT NOT NULL,
+  answers  TEXT
 );
 
-INSERT INTO users (User ID, First name, Last name, Email, Password, RegisterDate) VALUES
+INSERT INTO users (user_id, first_name, last_name, email, password, register_date) VALUES
 (2340,'First Name','Last Name','helloworld@gmail.com','helloworld','2022-10-17');
 
-INSERT INTO questions (Question ID, Question type, Question, Answers) VALUES
+INSERT INTO questions (question_id, question_type, question, answers) VALUES
 (2347,'Question Type','Question','Answers');
 
 COMMIT;
