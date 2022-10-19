@@ -1,9 +1,13 @@
 const nodemailer = require('nodemailer')
+const { google } = require('googleapis')
 
 const CLIENT_ID = '929475631938-u7868ocp0llul2788klh6epcofvfumm0.apps.googleusercontent.com'
 const CLIENT_SECRET = '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'
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
 const REFRESH_TOKEN ='1//044HYLP--mv6OCgYIARAAGAQSNwF-L9IrB7XWgIq-4JgyImcUCWhMqAG3SVg48VDrghvS8ZX5OtGFwQo4zuqOEHNGiwKXeq8mgcg'
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
 
  // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
