@@ -9,7 +9,7 @@ const REFRESH_TOKEN ='1//044HYLP--mv6OCgYIARAAGAQSNwF-L9IrB7XWgIq-4JgyImcUCWhMqA
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
 
-async function sendMail() {
+async function sendMail(data) {
     try {
         const accessToken = await oAuth2Client.getAccessToken()
 
@@ -29,8 +29,8 @@ async function sendMail() {
             from: 'flexibleEmailTest <flexible.test1@gmail.com>',
             to: 'ramiebash@gmail.com',
             subject: "Hello from gmail using API",
-            text: 'Hello from gmail email using API',
-            html: '<h1>Hello from gmail email using API</h1>'
+            text: 'Hello from Flexible email using API',
+            html: '<h1>Hello from Flexible email using API</h1>'
         }
 
         const result = await transport.sendMail(mailOptions)
@@ -41,7 +41,9 @@ async function sendMail() {
     }
 }
 
-sendMail().then(result => console.log('Email sent...', result))
-.catch(error => console.log(error.message))
+module.exports = sendMail
+
+// sendMail().then(result => console.log('Email sent...', result))
+// .catch(error => console.log(error.message))
 
  
