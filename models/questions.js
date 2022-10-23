@@ -6,7 +6,7 @@ function fetchQuestions() {
     })
 }
 
-function fetchQuestion() {
+function fetchQuestionById() {
     return db.query("SELECT * FROM TABLE WHERE ID = " + id).then((result) => {
         return result.rows
     })
@@ -14,5 +14,5 @@ function fetchQuestion() {
 
 module.exports = {
     fetchQuestions: fetchQuestions,
-    fetchQuestion: fetchQuestion
+    fetchQuestionById: fetchQuestionById
 }
