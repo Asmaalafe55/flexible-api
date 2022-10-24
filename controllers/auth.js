@@ -10,7 +10,7 @@ const SECRET = process.env.SECRET;
 const signin = catchAsync(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Missing data!');
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Missing data');
   const exists = await userModel.getUserByEmail(email);
   if (!exists)
     throw new ApiError(httpStatus.BAD_REQUEST, "User doesn't exist!");
