@@ -40,7 +40,7 @@ const updateUsersDetails = catchAsync(async (req, res) => {
     password
   );
   if (!result) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Data does not exist');
+    throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Failed to update user details');
   }
   res.status(httpStatus.OK).send(result);
 });
