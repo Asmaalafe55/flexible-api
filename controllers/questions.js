@@ -1,16 +1,21 @@
 const catchAsync = require("../utils/catchAsync")
 const questionsModel = require("../models/questions")
-const fetchQuestions = questionsModel.fetchQuestions
-const fetchQuestionById = questionsModel.fetchQuestionById
+const ApiError = require("../utils/ApiError")
+const httpStatus = require("http-status")
 
 const questions = catchAsync(async (req, res)  => {
-    const questions = await fetchQuestions()
-    res.satus(httpStatus.OK).send(questions)
+    const questions = await questionsModel.fetchQuestions()
+    res.status(httpStatus.OK).send(questions)
 })
 
 const questionById = catchAsync(async (req, res)  => {
-    const question = await fetchQuestionById()
-    res.satus(httpStatus.OK).send(question)
+    const id = req.body.id
+    if (!id) 
+        throw new ApiError(httpStatus.BAD_REQUEST, "Missing id")
+    const question = await questionsModel.fetchQuestionById(id)
+    if (!question)
+        throw new ApiError(httpStatus.BAD_REQUEST, "No question found with this id")
+    res.status(httpStatus.OK).send(question)
 })
 
 module.exports = { 
