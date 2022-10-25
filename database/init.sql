@@ -28,6 +28,10 @@ INSERT INTO questions (question_type, question, answer_options, website_type) VA
 ('textbox', 'What is the event address?', NULL, 'event'),
 ('date dropdown', 'When is the event?', NULL, 'event'),
 ('checkboxes', 'What features would you like to add?', '["Gallery", "Social media links", "Music", "Videos", "Text boxes (blog style)", "Countdown"]', 'event'),
+('text', 'Name on blog', NULL, 'blog'),
+('checkboxes', 'What features would you like to add?', '["Gallery", "Search", "Social Media Links", "Commenting system"]', 'blog'),
+('checkboxes', 'How would you like your readers to contact you?', '["Email", "Phone", "Text"]', 'blog'),
+('radio button yes/no', 'Would you like to add pagination or infinite scrolling for your posts?', NULL, 'blog')
 
 
 COMMIT;
