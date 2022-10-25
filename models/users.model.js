@@ -1,4 +1,4 @@
-const db = require('../database/connection');
+const db = require("../database/connection");
 
 const getUserById = (id) => {
   return db
@@ -21,8 +21,18 @@ const updateUsersDetails = (first_name, last_name, email, password) => {
     .then(({ rows }) => rows[0]);
 };
 
+const createNewUser = (first_name, last_name, password, email) => {
+  return db
+    .query(
+      `INSERT INTO users (first_name, last_name, email, password) VALUES ($1,$2,$3,$4) RETURNING user_id`,
+      [first_name, last_name, email, password]
+    )
+    .then(({ rows }) => rows[0]);
+};
+
 module.exports = {
   getUserById,
   getUserByEmail,
   updateUsersDetails,
+  createNewUser,
 };
