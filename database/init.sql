@@ -13,9 +13,10 @@ CREATE TABLE users (
 
 CREATE TABLE questions (
   question_id INTEGER PRIMARY KEY,
-  question_type INTEGER NOT NULL,
+  question_type VARCHAR(20) NOT NULL,
   question VARCHAR(150) NOT NULL,
-  answers JSON
+  answers JSON,
+  website_type VARCHAR(20) NOT NULL
 );
 
 INSERT INTO users (user_id, first_name, last_name, email, password, register_date) VALUES
