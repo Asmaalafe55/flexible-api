@@ -3,12 +3,12 @@ BEGIN;
 DROP TABLE IF EXISTS users, questions CASCADE;
 
 CREATE TABLE users (
-  user_id INTEGER PRIMARY KEY,
+  user_id SERIAL PRIMARY KEY,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   email VARCHAR(190) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
-  register_date DATE
+  register_date DATE DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE questions (
