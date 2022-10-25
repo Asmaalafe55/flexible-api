@@ -13,15 +13,25 @@ CREATE TABLE users (
 
 CREATE TABLE questions (
   question_id SERIAL PRIMARY KEY,
-  question_type INTEGER NOT NULL,
+  question_type VARCHAR(20) NOT NULL,
   question VARCHAR(150) NOT NULL,
-  answers JSON
+  answer_options JSON,
+  website_type VARCHAR(20) NOT NULL
 );
 
 INSERT INTO users (user_id, first_name, last_name, email, password, register_date) VALUES
 (2340,'First Name','Last Name','helloworld@gmail.com','helloworld','2022-10-17');
 
-INSERT INTO questions (question_id, question_type, question, answers) VALUES
-(2347, 3,'Question','["Berlin", "London"]');
+INSERT INTO questions (question_type, question, answer_options, website_type) VALUES
+('textbox', 'Event name', NULL, 'event'),
+('radio', 'How can people attend your event?', '["Buy tickets", "Sign-up sheet (free)", "Just show up", "Contact us"]', 'event'),
+('textbox', 'What is the event address?', NULL, 'event'),
+('date dropdown', 'When is the event?', NULL, 'event'),
+('checkboxes', 'What features would you like to add?', '["Gallery", "Social media links", "Music", "Videos", "Text boxes (blog style)", "Countdown"]', 'event'),
+('text', 'Name on blog', NULL, 'blog'),
+('checkboxes', 'What features would you like to add?', '["Gallery", "Search", "Social Media Links", "Commenting system"]', 'blog'),
+('checkboxes', 'How would you like your readers to contact you?', '["Email", "Phone", "Text"]', 'blog'),
+('radio', 'Would you like to add pagination or infinite scrolling for your posts?', '["Yes", "No"]', 'blog')
+
 
 COMMIT;
