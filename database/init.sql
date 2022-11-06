@@ -42,7 +42,7 @@ INSERT INTO questions (question_type, question, answer_options, website_type) VA
 ('radio', 'Would you like to add pagination or infinite scrolling for your posts?', '[{"value":"yes","text":"Yes"},{"value":"no","text":"No"}]', 'blog');
 
 INSERT INTO templates (template_name, template_img, template_keywords, template_description) VALUES
-('Travel Blog','t1.png','["travel ", "blog", "vacation", "lifestyle", "personal"]','Bloggers, Travel Blogs, & Lifestyle Blogs'),
+('Travel Blog','t1.png','["travel", "blog", "vacation", "lifestyle", "personal"]','Bloggers, Travel Blogs, & Lifestyle Blogs'),
 ('App Landing page','t2.png','["apps", "buisness"]','Applications, startups and high-tech companies'),
 ('Event Venue','t3.png','["apps", "buisness"]','Concert venues, music halls, and live performance theaters'),
 ('Clothing Store','t4.png','["clothing", "store", "outfit"]','Online clothing stores, fashion boutiques, and designer studios');
