@@ -10,6 +10,7 @@ const auth = require('./controllers/auth');
 const {
   templates,
   templateById,
+  addNewTemplate,
 } = require('./controllers/templates.controllers.js');
 
 const router = require('express').Router();
@@ -27,6 +28,7 @@ router.post('/questionById', questionsController.questionById);
 
 router.get('/templates', templates);
 router.post('/templateById', templateById);
+router.post('/template/add', addNewTemplate);
 
 router.post('/contact', contactUs);
 module.exports = router;

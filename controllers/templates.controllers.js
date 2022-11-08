@@ -20,7 +20,17 @@ const templateById = catchAsync(async (req, res) => {
   res.status(httpStatus.OK).send(template);
 });
 
+const addNewTemplate = catchAsync(async (req, res) => {
+  const data = req.body;
+  if (!data) throw new ApiError(httpStatus.BAD_REQUEST, 'Missing Data');
+  const templateId = await templatesModel.addTemplate(data);
+  if (!templateId)
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Template not added!');
+  res.status(httpStatus.OK).send(templateId);
+});
+
 module.exports = {
   templates: templates,
   templateById: templateById,
+  addNewTemplate: addNewTemplate,
 };
