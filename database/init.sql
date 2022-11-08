@@ -22,7 +22,7 @@ CREATE TABLE questions (
 CREATE TABLE templates (
   template_id SERIAL PRIMARY KEY,
   template_name VARCHAR(30) NOT NULL,
-  template_img VARCHAR(20) NOT NULL,
+  template_img VARCHAR(255) NOT NULL,
   template_keywords JSON,
   template_description VARCHAR(100) NOT NULL
 );
@@ -42,9 +42,9 @@ INSERT INTO questions (question_type, question, answer_options, website_type) VA
 ('radio', 'Would you like to add pagination or infinite scrolling for your posts?', '[{"value":"yes","text":"Yes"},{"value":"no","text":"No"}]', 'blog');
 
 INSERT INTO templates (template_name, template_img, template_keywords, template_description) VALUES
-('Travel Blog','t1.png','["travel", "blog", "vacation", "lifestyle", "personal"]','Bloggers, Travel Blogs, & Lifestyle Blogs'),
-('App Landing page','t2.png','["apps", "buisness"]','Applications, startups and high-tech companies'),
-('Event Venue','t3.png','["apps", "buisness"]','Concert venues, music halls, and live performance theaters'),
-('Clothing Store','t4.png','["clothing", "store", "outfit"]','Online clothing stores, fashion boutiques, and designer studios');
+('Travel Blog','https://user-images.githubusercontent.com/92914100/200600904-3866bcbb-a23d-4022-8e07-15d27940673f.png','["travel", "blog", "vacation", "lifestyle", "personal"]','Bloggers, Travel Blogs, & Lifestyle Blogs'),
+('App Landing page','https://user-images.githubusercontent.com/92914100/200600855-f91b1a2d-8835-443d-b91d-c49b0d1b4376.png','["apps", "buisness"]','Applications, startups and high-tech companies'),
+('Event Venue','https://user-images.githubusercontent.com/92914100/200600885-bab35afd-2101-48c9-9397-bc5aaaf8e59a.png','["apps", "buisness"]','Concert venues, music halls, and live performance theaters'),
+('Clothing Store','https://user-images.githubusercontent.com/92914100/200600896-80734332-e5ce-44d6-b578-ef83b6c2eed4.png','["clothing", "store", "outfit"]','Online clothing stores, fashion boutiques, and designer studios');
 
 COMMIT;
