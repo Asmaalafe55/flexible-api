@@ -24,8 +24,15 @@ function addTemplate(data) {
     .then((result) => result.rows[0]);
 }
 
+function removeTemplate(id) {
+  return db
+    .query('DELETE FROM templates WHERE template_id = $1', [id])
+    .then((result) => result.rows);
+}
+
 module.exports = {
   getAllTemplates: getAllTemplates,
   getTemplateById: getTemplateById,
   addTemplate: addTemplate,
+  removeTemplate: removeTemplate,
 };

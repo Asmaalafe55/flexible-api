@@ -29,8 +29,18 @@ const addNewTemplate = catchAsync(async (req, res) => {
   res.status(httpStatus.OK).send(templateId);
 });
 
+const removeTemplate = catchAsync(async (req, res) => {
+  const data = req.body;
+  if (!data) throw new ApiError(httpStatus.BAD_REQUEST, 'Missing Data');
+  const templates = await templatesModel.removeTemplate(data);
+  if (!templates)
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Template not removed!');
+  res.status(httpStatus.OK).send(templates);
+});
+
 module.exports = {
   templates: templates,
   templateById: templateById,
   addNewTemplate: addNewTemplate,
+  removeTemplate: removeTemplate,
 };
