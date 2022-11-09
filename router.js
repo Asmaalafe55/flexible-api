@@ -12,6 +12,7 @@ const {
   templateById,
   addNewTemplate,
   removeTemplate,
+  editTemplate,
 } = require('./controllers/templates.controllers.js');
 
 const router = require('express').Router();
@@ -31,6 +32,7 @@ router.get('/templates', templates);
 router.post('/templateById', templateById);
 router.post('/template/add', addNewTemplate);
 router.post('/template/remove', removeTemplate);
+router.post('/template/edit', editTemplate);
 
 router.post('/contact', contactUs);
 module.exports = router;
