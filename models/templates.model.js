@@ -25,6 +25,7 @@ function addTemplate(data) {
 }
 
 function removeTemplate(id) {
+  console.log(id);
   return db
     .query('DELETE FROM templates WHERE template_id = $1', [id])
     .then((result) => result.rows);

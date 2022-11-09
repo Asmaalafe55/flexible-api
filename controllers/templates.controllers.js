@@ -9,7 +9,7 @@ const templates = catchAsync(async (req, res) => {
 });
 
 const templateById = catchAsync(async (req, res) => {
-  const id = req.body.id;
+  const id = req.body;
   if (!id) throw new ApiError(httpStatus.BAD_REQUEST, 'Missing id');
   const template = await templatesModel.getTemplateById(id);
   if (!template)
@@ -30,7 +30,8 @@ const addNewTemplate = catchAsync(async (req, res) => {
 });
 
 const removeTemplate = catchAsync(async (req, res) => {
-  const data = req.body;
+  const data = req.body.id;
+  console.log(data);
   if (!data) throw new ApiError(httpStatus.BAD_REQUEST, 'Missing Data');
   const templates = await templatesModel.removeTemplate(data);
   if (!templates)
