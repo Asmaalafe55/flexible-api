@@ -35,11 +35,11 @@ function editTemplate(data) {
     .query(
       `UPDATE templates SET template_name=$1, template_img=$2, template_keywords=$3, template_description=$4  WHERE template_id=$5`,
       [
-        data.template_name,
-        data.template_img,
-        data.template_keywords,
-        data.template_description,
-        data.template_id,
+        data.name,
+        data.imageUrl,
+        JSON.stringify(data.keywords),
+        data.description,
+        data.id,
       ]
     )
     .then((result) => result.rows);
